@@ -20,8 +20,36 @@ class CreatePerfumesTable extends Migration
             $table->integer( "price" );
             //$table->timestamps();
         });
-    }
-
+    
+    DB::table("perfumes")->insert(
+    [
+    [
+        "name"=> "Adidas",
+        "type"=>"dezodor",
+        "price" => 1000,
+    ],
+    [
+        "name"=> "Axe",
+        "type"=>"dezodor",
+        "price" => 900,
+    ],
+    [
+        "name"=> "Oldspice",
+        "type"=>"izadásgátló",
+        "price" => 1200,
+    ],
+    [
+        "name"=> "Aramis",
+        "type"=>"parfüm",
+        "price" => 1500,
+    ],
+    [
+        "name"=> "Biotherm",
+        "type"=>"dezodor",
+        "price" => 1400
+    ]
+    ]);
+}
     /**
      * Reverse the migrations.
      *

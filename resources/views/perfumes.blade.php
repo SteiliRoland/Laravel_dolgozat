@@ -1,11 +1,11 @@
 @extends( "layouts.master" )
-
+@section("title","Termékek")
 @section( "content" )
 
 <a href="/new-perfume"><button>Új termék</button></a>
 
 <table>
-    <thead>
+    <head>
         <tr>
             <td>Id</td>
             <td>Termék</td>
@@ -13,8 +13,8 @@
             <td>Ár</td>
             <td>Művelet</td>
         </tr>
-    </thead>
-    <tbody>
+    </head>
+    <body>
         @foreach( $perfumes as $perfume )
             <tr>
                 <td>{{ $perfume->id }}</td>
@@ -31,6 +31,6 @@
                 </td>
             </tr>
         @endforeach
-    </tbody>   
+    </body>   
 </table>
 @endsection

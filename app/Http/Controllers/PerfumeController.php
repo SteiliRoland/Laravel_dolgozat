@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Perfume;
 use Illuminate\Http\Request;
 
 class PerfumeController extends Controller
@@ -10,7 +10,7 @@ class PerfumeController extends Controller
 
         $perfumes = Perfume::all();
 
-        return view( "/perfumes" );
+        return view( "/perfumes",["perfumes"=>$perfumes]);
     }
 
     public function newPerfume() {
@@ -28,7 +28,7 @@ class PerfumeController extends Controller
 
         $perfume->save();
 
-        return redirect( "/new-perfume" );
+        return redirect( "/perfumes" );
     }
 
     public function editPerfume( $id ) {
@@ -41,7 +41,9 @@ class PerfumeController extends Controller
     }
 
     public function updatePerfume( Request $request ) {
-
+        $perfume = Perfume::find( $id );
+        $perfume->update( $request->all() );
+        return redirect("/update-perfume");
     }
 
     public function deletePerfume( $id ) {
